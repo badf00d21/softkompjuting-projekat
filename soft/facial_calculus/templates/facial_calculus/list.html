@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Minimal Django File Upload Example</title>   
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    </head>
+    <body > 
+   
+    <h1 align="center"> Soft computing - facial calculus</h1> </br> </br>
+    <!-- List of uploaded documents -->
+    
+    <div class="col-sm-4">
+        <!-- Upload form. Note enctype attribute! -->
+        <form action="{% url 'list' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>{{ form.non_field_errors }}</p>
+            <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+            <p>
+                {{ form.docfile.errors }}
+                {{ form.docfile }}
+            </p>
+            <p><input class="btn-info" type="submit" value="Upload" /></p>
+        </form>
+    </div>
+    {% if documents %}
+    <div class="col-sm-8">
+       <table border = '2' align="center" class="table">
+       <th> Uploaded faces </th>
+       <th> Name </th>
+       <th> Analize </th>
+       <th> Delete </th>
+        {% for document in documents %}
+            <tr>
+            <td>
+				<a><img src="{{ document.docfile.url }}" height="256" width="256"></a>
+            </td>
+            <td>
+                {{ document.docfile.name }}
+            </td>
+            <td>
+				<form action = "redirect_to_analyze/{{ document.id }} " method = 'get'>
+					<input class="btn-danger" type = 'submit' value = 'Analyze'>
+				</form>
+            </td>
+            <td>
+                <form action = "delete/{{ document.id }} " method = 'get'>
+                    <input class ="btn-warning" type = 'submit' value = 'Delete'>
+                </form>
+            </td>
+			</tr>
+        {% endfor %}
+        </table>
+    </div>
+    {% else %}
+        <p>No documents.</p>
+    {% endif %}
+
+        
+    </body>
+</html> 

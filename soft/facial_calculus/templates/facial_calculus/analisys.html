@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Analysys result</title>   
+    </head>
+    <body>
+    <!-- List of uploaded documents -->
+    {% if slika %}
+        <img src = "{{ slika.docfile.url }}" align="middle">Analysys Result </img>
+    {% else %}
+        <h1> Image could not be analysed, please try with anotherone! </h1>
+    {% endif %}
+	{% if output %}
+      <p>
+		{{output}}
+	  </p><br>
+      <div>
+          {{opis}}
+      </div>
+    {% else %}
+        <p>No output.</p>
+    {% endif %}
+	
+	
+   
+    </body>
+</html> 
