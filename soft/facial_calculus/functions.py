@@ -297,57 +297,84 @@ def save_image_fun(path, image):
 
 def make_description(dic):
     retVal = ''
-    if dic['mouth_thick'] < 0.12:
-        retVal += " Ispod proseka je debljina usta.</br>"
+    if dic['mouth_thick'] < 0.0922:
+        retVal += "Small lips: A person with small lips tends to be less talkative. He tends to keep his private life away from others and may hide his inner emotions and feelings. He can also hold on to secrets for years, unlike the guy who has big lips who can hardly hold a secret (unless of course he's bound by some strong influencing force like religion for example) A thin lipped person may be very cautious and not an adventure-lover. \n"
+    elif dic['mouth_thick'] > 0.11:
+        retVal += "Big lips: A person with big lips tends to be very talkative and will hardly ever be silent. This person likes to talk a lot and to tell stories. he provides very good company when present in a group but if that person wasn't accompanied with good listeners then people may end up feeling irritated and annoyed of his continuous talking. When you want to ask for directions in the street pick someone with big lips because he will give you the full details.\n"
     else:
-        retVal += "Debljina usta iznad proseka.</br>"
+        retVal += "Balanced lip: Because human beings are different you can't categorize every person you meet under the two major categories of big lips or small lips but instead you will find many people falling in between the two large categories. The more the person is close to one of these categories the more likely he will have the personality traits associated with it."
+    
+    if dic['eye_width'] < 0.131:
+        retVal += " Small eye width:  You are naturally enthusiastic and eager to participate. You don't have to run the show, but you want to be included in whatever is happening. Your challenge is that if you are interrupted, you may feel criticized and you will put up emotional walls because you don't feel appreciated.\n"
+    else:
+        retVal += " Above average eye width: You may seem calm and relaxed, but you are constantly evaluating everything. Even when you are nodding your head, it doesn't mean you are agreeing with what's being said. You question and weigh matters carefully and need proof before accepting anything. You protect your inner self by being reflective, reserved, cautious, and observant.\n"
 
-    if dic['eye_width'] < 0.13:
-        retVal += " Ispod proseka je sirina ociju.</br>"
+    if dic['between_eyes'] < 0.202:
+        retVal += " Small eye distance: That person has a very powerful ability to concentrate. When he concentrates, he becomes very focused , hates to be disturbed and may easily become stressed as a result. That person has a deep interest in details. If you are telling him a story, then make sure that you include small details that other people may have no concern for. That's the beauty of face reading ! it teaches you how to deal with each person based on his specific personality. That person may also have low tolerance especially if he was emotionally sensitive. People with small eye distance may find it very hard to tolerate temperature changes, traffic jams and external influences. This low tolerance acts as a multiplier to external stressful influences which in turn results in making them angry more often..\n"
     else:
-        retVal += "Iznad proseka je sirina ociju.</br>"
+        retVal += "Long eye distance: This person may have trouble concentrating for long periods of time. He is relaxed by nature and doesn't care much about small details. He only focuses on the big picture and this might make him a good manager.\n"
 
-    if dic['between_eyes'] < 0.208:
-        retVal += " Ispod proseka je izmedju ociju.</br>"
-    else:
-        retVal += "Iznad proseka je izmedju ociju.</br>"
+    if dic['nose_height'] < 0.27 :
+        retVal += " Short nose: Represents a true hardworker, who can spent mounths of life dedicated mostly to one thing.\n"
+    else :
+        retVal += "Long nose: This is true mark of a leader, the one who can make others work and follow his lead. \n"
+    
+    if dic['nose_width'] < 0.15 :
+        retVal += " Small nose width: Sharper nose means the person is cunning and thoughtful.\n"
+    else :
+        retVal += "Wide nose: Mostly representing strong and maybe violent sexual desire. \n"
+        
 
-    if dic['eye_height'] < 0.046:
-        retVal += " Ispod proseka je visina ociju.</br>"
+    if dic['face_width'] < 0.737:
+        retVal += " Thin face: The thin face is easily noticed because it appears to be longer than normal faces. People with thin faces have long faces that have low width compared to their height. A thin faced person is confident by experience and not by nature. This means that when trying something new he may feel afraid or anxious. If he has a small eye distance in addition to a slim face then he may be interested in small details. The main challenge concerning thin faced people is fear. Fear is a very big part of their lives and this may motivate them stick to a certain comfort zone and stay away from adventures.\n"
     else:
-        retVal += "Iznad proseka je visina ociju.</br>"
+        retVal += " Wide face: People with wide faces are friendly by nature; they like social gatherings and provide a nice company. When intending to ask for help head for the wide faced person because he may be friendlier than the other people around.\n"
 
-    if dic['eye_width'] < 0.29:
-        retVal += " Ispod proseka je visina nosa.</br>"
+    if dic['mouth_width'] < 0.15:
+        retVal += " Smaller mouth width characterizes hidden perverted tendentions.\n"
     else:
-        retVal += "Iznad proseka je visina nosa.</br>"
+        retVal += "Wider mouth characterizes feature that exaggerates things.\n"
 
-    if dic['face_width'] < 0.75:
-        retVal += " Ispod proseka je sirina lica.</br>"
-    else:
-        retVal += "Iznad proseka je sirina lica.</br>"
-
-    if dic['mouth_width'] < 0.29:
-        retVal += " Ispod proseka je sirina usta.</br>"
-    else:
-        retVal += "Iznad proseka je sirina usta.</br>"
-
-    if dic['outer_eye_angle'] < 60:
-        retVal += " Ispod proseka je spoljasnji ugao oka.</br>"
-    else:
-        retVal += "Iznad proseka je spoljasnji ugao oka.</br>"
-
-    if dic['inner_eye_angle'] < 60:
-        retVal += " Ispod proseka je unutrasnji ugao oka.</br>"
-    else:
-        retVal += "Iznad proseka je unutrasnji ugao oka.</br>"
+    if  numpy.abs(dic['outer_eye_angle'] - dic['inner_eye_angle']) < 5:
+        retVal += "Eye No Angle (inner and outer corners on same level): You have a balanced view of life and tend to be pragmatic (sensible, businesslike) and objective. You are not easily discouraged and possess resilience under stress. If plans don't work out at first, you can continue on undaunted until they do. You are also concerned with fairness and justice.  \n"
+    elif dic['outer_eye_angle'] < dic['inner_eye_angle']:
+        retVal += " Eye Angles Down (outer corner lower than inner corner): You don't see the world through rose-colored glasses. In fact, you expect problems, and you are especially good at spotting potential trouble. You may find that others come to you with their problems because your eyes also show a genuine compassion for the suffering of others. You are quick to admit your errors and correct them, and you expect others to do the same.\n"
+    elif dic['outer_eye_angle'] > dic['inner_eye_angle']:
+        retVal += "Eye Angles Up (outer corner higher than inner corner): You are good at inspiration and imagination. You are an optimist with a focus on the positive things in life. You expect things to turn out for the best. This attitude allows you to accomplish goals others would never try. Your challenge is to keep an even keel if plans don't work out as expected. \n"
 
     if dic['lip_proportion'] < 1:
-        retVal += " Veca je donja usna.</br>"
+        retVal += " Bigger lower lip:  Sexual desire and gluttony.\n"
     else:
-        retVal += "Veca je gornja usna.</br>"
+        retVal += "Bigger upper lip: Patient, generous and grudging.\n"
 
     return retVal
+
+def make_description_list( description_string):
+    return description_string.splitlines()
+
+def make_output_list (output_string ):
+    return output_string.splitlines()
+
+def make_output_dic (output_string):
+    lista = make_output_list (output_string)
+    output_dic = dict()
+    for obj in lista:
+        output_dic[obj.split(':')[0]] = float(obj.split(':')[1])
+    return output_dic
+
+
+def make_avg_dic ( dic_arr):
+
+    retVal = dict()
+    
+    for key in dic_arr[0]:
+        retVal[key] = 0
+        for dnevnik in dic_arr:
+            retVal[key] += dnevnik[key]
+    
+    return retVal
+
+
 ##calculate_face_width(landmarks1, result_dic )
 ##p = calculate_proportion(landmarks1)
 ##print "-------------------"

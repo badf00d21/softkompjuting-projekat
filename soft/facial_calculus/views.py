@@ -82,12 +82,34 @@ def redirect_to_analyze(request, pic_id):
 		for key in result_dic2:
 			output += key + ": " + str(result_dic2[key]) + "\n"
 		newdoc.textfield = output
-		newdoc.opis = make_description(result_dic2)
+		newdoc.description = make_description(result_dic2)
+		#print newdoc.opis
 		newdoc.save()
+
+	lista_opis = make_description_list(newdoc.description)
+	lista_output = make_output_list (newdoc.textfield)
 	
 	return render_to_response(
         'facial_calculus/analisys.html',
-        {'output': newdoc.textfield, 'slika': newdoc, 'opis': newdoc.opis},
+        {'output': lista_output, 'slika': newdoc, 'opis': lista_opis},
         context_instance=RequestContext(request)
     )
+
+def calculate_avg_values():
+	svi = DocumentOutput.objects.all()
+	
+	avg_dic = make_output_dic(svi[0].textfield)
+
+	if len(svi) > 1:
+		for i in range(1, len(svi)):
+			this_dic = dict()
+			this_dic = make_output_dic(svi[i].textfield)
+			for key in avg_dic.keys():
+				avg_dic[key] += this_dic[key]
+
+	for key in avg_dic.keys():
+		avg_dic[key] /= len(svi)
+		
+	return avg_dic
+	
 	

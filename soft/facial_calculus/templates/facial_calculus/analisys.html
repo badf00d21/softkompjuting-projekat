@@ -7,16 +7,24 @@
     <body>
     <!-- List of uploaded documents -->
     {% if slika %}
-        <img src = "{{ slika.docfile.url }}" align="middle">Analysys Result </img>
+    <img src="{{ slika.docfile.url }}" class="img-responsive" alt="Face analized" >
+        
     {% else %}
         <h1> Image could not be analysed, please try with anotherone! </h1>
     {% endif %}
 	{% if output %}
-      <p>
-		{{output}}
-	  </p><br>
       <div>
-          {{opis}}
+       {% if opis %}
+          {%for op in opis%}
+              {{op}} <br> <br>
+          {% endfor %}
+       {% endif %}
+      </div> <br>
+      <div>
+      Numeric analysis parameters: <br>
+      {% for o in output %}
+          {{o}} <br>
+      {% endfor %}
       </div>
     {% else %}
         <p>No output.</p>
