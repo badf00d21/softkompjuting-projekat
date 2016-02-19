@@ -1,0 +1,99 @@
+goo hara:
+mouth_thick  =  0.125 %
+eye_width  =  0.136 %
+between_eyes  =  0.201 %
+eye_height  =  0.046 %
+nose_height  =  0.256 %
+face_width  =  0.706 %
+nose_width  =  0.133 %
+mouth_width  =  0.289 %
+
+qwe:
+mouth_thick  =  0.099 %
+eye_width  =  0.139 %
+between_eyes  =  0.214 %
+eye_height  =  0.051 %
+nose_height  =  0.266 %
+face_width  =  0.755 %
+nose_width  =  0.14 %
+mouth_width  =  0.238 %
+
+rebbeca:
+mouth_thick  =  0.12 %
+eye_width  =  0.148 %
+between_eyes  =  0.218 %
+eye_height  =  0.057 %
+nose_height  =  0.32 %
+face_width  =  0.83 %
+nose_width  =  0.173 %
+mouth_width  =  0.345 %
+
+walter:
+mouth_thick  =  0.051 %
+eye_width  =  0.13 %
+between_eyes  =  0.201 %
+eye_height  =  0.024 %
+nose_height  =  0.3 %
+face_width  =  0.764 %
+nose_width  =  0.177 %
+mouth_width  =  0.315 %
+
+hot:
+mouth_thick  =  0.093 %
+eye_width  =  0.144 %
+between_eyes  =  0.212 %
+eye_height  =  0.051 %
+nose_height  =  0.274 %
+face_width  =  0.733 %
+nose_width  =  0.137 %
+mouth_width  =  0.282 %
+
+sheen:
+mouth_thick  =  0.066 %
+eye_width  =  0.126 %
+between_eyes  =  0.207 %
+eye_height  =  0.041 %
+nose_height  =  0.274 %
+face_width  =  0.748 %
+nose_width  =  0.142 %
+mouth_width  =  0.249 %
+
+mel:
+mouth_thick  =  0.047 %
+eye_width  =  0.13 %
+between_eyes  =  0.195 %
+eye_height  =  0.047 %
+nose_height  =  0.282 %
+face_width  =  0.727 %
+nose_width  =  0.154 %
+mouth_width  =  0.247 %
+
+koso:
+mouth_thick  =  0.092 %
+eye_width  =  0.116 %
+between_eyes  =  0.187 %
+eye_height  =  0.032 %
+nose_height  =  0.251 %
+face_width  =  0.745 %
+nose_width  =  0.149 %
+mouth_width  =  0.345 %
+
+cosby:
+mouth_thick  =  0.096 %
+eye_width  =  0.114 %
+between_eyes  =  0.183 %
+eye_height  =  0.027 %
+nose_height  =  0.245 %
+face_width  =  0.657 %
+nose_width  =  0.179 %
+mouth_width  =  0.279 %
+
+mar:
+mouth_thick  =  0.088 %
+eye_width  =  0.14 %
+between_eyes  =  0.202 %
+eye_height  =  0.05 %
+nose_height  =  0.286 %
+face_width  =  0.714 %
+nose_width  =  0.135 %
+mouth_width  =  0.261 %
